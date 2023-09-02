@@ -14,11 +14,6 @@ import { formatDateFmt } from '@/lib/formatDate'
 const BlogPostCard = ({ post, showSummary }) => {
   const { locale } = useGlobal()
   const showPreview = CONFIG.POST_LIST_PREVIEW && post.blockMap
-  const linkedCoverPrefix =  'https://www.notion.so/image/'
-  if (post?.page_cover && post?.page_cover?.startsWith(linkedCoverPrefix)) {
-    const linkedCoverPrefixLength = linkedCoverPrefix.length
-    post.page_cover = decodeURIComponent(post.page_cover.slice(linkedCoverPrefixLength))
-  }
   return (
     <Card className="w-full">
       <div
